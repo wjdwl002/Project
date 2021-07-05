@@ -1,6 +1,12 @@
 import {
     Ball
 } from './ball.js';
+import {
+    Block
+} from './block.js';
+import {
+    Button
+}from './button.js';
 
 class App{
     constructor(){
@@ -12,7 +18,9 @@ class App{
         window.addEventListener('resize',this.resize.bind(this),false);
         this.resize();
 
-        this.ball = new Ball(this.stageWidth,this.stageHeight,60,15)
+        this.block = new Block(300,30,200,200);
+        this.ball = new Ball(this.stageWidth,this.stageHeight,30,5,this.block)
+        this.speedBtn = new Button(this.window, [10,20,30], 'speed');
 
         window.requestAnimationFrame(this.animate.bind(this));
     }
@@ -29,7 +37,11 @@ class App{
     animate(t){
         window.requestAnimationFrame(this.animate.bind(this));
 
+        this.ctx.clearRect(0,0,this.stageWidth,this.stageHeight); //이전 그림 지우기
+
         this.ball.draw(this.ctx, this.stageWidth, this.stageHeight);
+        this.block.draw(this.ctx);
+
     }
 }
 
