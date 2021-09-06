@@ -4,9 +4,9 @@ import {
 import {
     Block
 } from './block.js';
-import {
-    Button
-}from './button.js';
+// import {
+//     Button
+// }from './button.js';
 
 class App{
     constructor(){
@@ -20,7 +20,7 @@ class App{
 
         this.block = new Block(300,30,200,200);
         this.ball = new Ball(this.stageWidth,this.stageHeight,30,5,this.block)
-        this.speedBtn = new Button(this.window, [10,20,30], 'speed');
+        // this.speedBtn = new Button(this.window, [10,20,30], 'speed');
 
         window.requestAnimationFrame(this.animate.bind(this));
     }
